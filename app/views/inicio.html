@@ -1,0 +1,126 @@
+<div class="page">
+
+    <section class="panel panel-dark">
+        <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span>Principal</strong></div>
+        <div class="panel-body">
+            <p>Seguros de ti</p>
+            <div data-ng-controller="jqvmapCtrl">
+              <div class="col-md-4">
+                  <section class="panel panel-default">
+                      <div class="panel-heading"><strong><span class="fa fa-map-marker"></span>   Sucurusales</strong></div>
+                      <div class="panel-body">
+                      <div class="ui-map" ui-jqvmap options="venezuelaMap"></div>
+                      </div>
+                  </section>
+              </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" >
+                      <span aling="center" ><i class="fa fa-building-o"></i>    La buena compañia </span>
+                    </div>
+                    <div class="panel-body">
+                      <div id="EdifPrincipal" >
+                          <div id="card">
+                            <img style="width:100%" src="img/99_big.jpg" alt="" class="frente">
+                            <span class="atras"> Seguros de ti</span>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" >
+                      <span class="glyphicon glyphicon-phone-alt"> Agenda telefonica </span>
+                        </div>
+                      <div class="panel-body" data-ng-controller="ModalAgendaCtrl">
+                      <script type="text/ng-template" id="myModalContent.html">
+                          <div class="modal-header">
+                              <h3>I am a modal!</h3>
+                          </div>
+                          <div class="modal-body">
+                          <form>
+                          <table>
+                            <tr>
+                              <td>Titulo</td>
+                              <td><input type="text" name="name" ng-model="newcontact.titulo"></td>
+                            </tr>
+                            <tr>
+                              <td>Name</td>
+                              <td><input type="text" name="name" ng-model="newcontact.name"/></td>
+                            </tr>
+                            <tr>
+                              <td>Cargo</td>
+                              <td><input type="text" name="name" ng-model="newcontact.cargo"></td>
+                            </tr>
+                            <tr>
+                              <td>Email</td>
+                              <td><input type="text" name="email" ng-model="newcontact.email"/></td>
+                            </tr>
+                            <tr>
+                              <td>Extencion</td>
+                              <td><input type="text" name="extencion" ng-model="newcontact.extencion"/></td>
+                            </tr>
+                            <tr>
+                            <tr>
+                            <td></td>
+                            </tr>
+                          <td><input type="hidden" ng-model="newcontact.id" /></td>
+                          <td><input type="button" value="Save" ng-click="saveContact()" /></td>
+                          </tr>
+                          </table>
+                          </form>
+                          <table border="1">
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Titulo</th>
+                              <th>Cargo</th>
+                              <th>Email</th>
+                              <th>Extencion</th>
+                              <th>Action</th>
+                            </tr>
+                            <tr ng-repeat="contact in contacts">
+                              <td>{{ contact.titulo}}</td>
+                              <td>{{ contact.name }}</td>
+                              <td>{{ contact.cargo }}</td>
+                              <td>{{ contact.email }}</td>
+                              <td>{{ contact.extencion }}</td>
+                              <td>
+                              <a  href="#" ng-click="edit(contact.id)">edit</a> |
+                              <a href="#" ng-click="delete(contact.id)">delete</a>
+                              </td>
+                            </tr>
+                          </table>
+
+                                <span ng-repeat="item in items" class="list-unstyled">
+                                  <label class="ui-radio"><input name="radio1" type="radio" value="{{ item }}"  ng-checked="selected.item === item" ng-click="selected.item = item"><span>{{ item }}</span></label>
+                              </span>
+                              <br>
+                              Selected: <b>{{ selected.item }}</b>
+                          </div>
+                          <div class="modal-footer">
+                              <button class="btn btn-primary" ng-click="ok()">OK</button>
+                              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                          </div>
+                      </script>
+
+                      <button class="btn btn-gap-v btn-primary" ng-click="open()">Buscar</button>
+                      <div class="divider"></div>
+                      <div class="callout callout-info">
+                          <p>El numero de la extencion es: <strong>{{ selected }}</strong></p>
+                      </div>
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+    </section>
+
+</div>
